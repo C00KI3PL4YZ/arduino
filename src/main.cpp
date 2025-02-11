@@ -14,19 +14,15 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  brightness = (256/100)*brightnessInPercent;
-  analogWrite(ledPin, brightness);
-  delay(200);
-  if (brightnessInPercent < 100 and down == false) {
-    brightnessInPercent = brightnessInPercent + 5;
-  } else if (brightnessInPercent != 0)
-  {
-    brightnessInPercent = brightnessInPercent - 5;
-    down = true;
-  } else {
-    down=false;
-  }
   
+  while (brightnessInPercent <= 100)
+  {
+    brightness = (256/100)*brightnessInPercent;
+    analogWrite(ledPin, brightness);
+    brightnessInPercent = brightnessInPercent + 5;
+    delay(200);
+  }
+  digitalWrite(ledPin, LOW);
 
 }
 
