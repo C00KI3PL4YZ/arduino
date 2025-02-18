@@ -6,8 +6,7 @@ const int ledPin0 = 11;
 const int ledPin1 = 10;
 const int ledPin2 = 9;
 const int ledPin3 = 8;
-const int levPin0 = 2;
-const int levPin1 = 3;
+const int butPin0 = 2;
 
 /*Gehört zu schneller und einfacher*/
 void onoff(int pinnum) {
@@ -23,8 +22,7 @@ void setup() {
   pinMode(ledPin1, OUTPUT);  
   pinMode(ledPin2, OUTPUT);  
   pinMode(ledPin3, OUTPUT);  
-  pinMode(levPin0, INPUT);  
-  pinMode(levPin1, INPUT);  
+  pinMode(butPin0, INPUT);  
 }
 
 void loop() {
@@ -58,13 +56,18 @@ void loop() {
 
   /*mit dyn, aber halt ohne var, weil keine var während laufzeit, sonst auau*/
 
-  for (int i = 8; i < 12; i++)
+  if (digitalRead(butPin0) == HIGH)
   {
-    onoff(i);
-  }
-  for (int i = 11; i > 7; i--)
-  {
-    onoff(i);
+    
+  
+    for (int i = 8; i < 12; i++)
+    {
+      onoff(i);
+    }
+    for (int i = 11; i > 7; i--)
+    {
+      onoff(i);
+    }
   }
   
 
